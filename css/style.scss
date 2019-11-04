@@ -1,0 +1,144 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+// Notes:
+// for glyphs, check out http://getbootstrap.com/components/
+// override bootstrap values, full list of variables:
+// http://getbootstrap.com/customize/#less-variables
+
+/***** Bootstrap settings ******/
+$font-size-base: 18px;
+$font-size-small: 12px;
+$container-sm: 800px; // Small screen / tablet
+$container-md: 960px; // Medium screen / desktop
+$container-lg: 960px; // Large screen / wide desktop
+$brand-info: rgb(123, 165, 244); // for info buttons
+$navbar-inverse-bg: rgb(154, 154, 154);
+$navbar-default-link-color: rgb(245, 131, 38);
+
+// Inverted navbar links
+$navbar-inverse-link-color:                 rgb(245, 131, 38);
+$navbar-inverse-link-hover-color:           lighten($navbar-inverse-link-color, 50%);
+$navbar-inverse-link-hover-bg:              transparent !default;
+$navbar-inverse-link-active-color:          $navbar-inverse-link-hover-color !default;
+$navbar-inverse-link-active-bg:             $navbar-inverse-bg;
+$navbar-height: 110px;
+$navbar-margin-bottom: 0px;
+
+// links
+$link-color:            rgb(30, 135, 212);
+$link-hover-color:      lighten($link-color, 15%) !default;
+
+@import "bootstrap";
+
+/***** Custom Layout ******/
+
+html {
+  position: relative;
+  min-height: 100%;
+  overflow-y: scroll; // to make sure that the content doesn't always shift around when the scrollbar first shows up
+}
+
+body {
+  a {
+    &:active, &:focus, &:hover {
+      text-decoration: none;
+    }
+  }
+
+}
+
+/* index.html content layout */
+/* adapted from tidyverse.org */
+
+.band {
+  position: relative;
+  padding: 0 5%; }
+
+.bandContent {
+  margin: 0 auto;
+  max-width: 1200px; }
+
+#homeContent {
+  background-color: #fff; }
+  #homeContent .band .bandContent {
+    display: flex;
+    justify-content: space-between;
+    display: -ms-flexbox;
+    -ms-flex-pack: justify;
+    display: -webkit-box;
+    display: -webkit-flex;
+    -webkit-justify-content: space-between;
+  }
+  #homeContent .band .blurb {
+    z-index: 999;
+    background-color: $gray-lighter;
+    border-radius: 25px;
+    padding: 20px;
+    font-weight: 300;
+    display: inline-block;
+    font-size: 24px;
+    line-height: 40px;
+    max-width: 45%; }
+    #homeContent .band .blurb .tagline {
+      font-size: 36px;
+      margin-bottom: 16px; }
+    #homeContent .band .blurb a {
+      font-weight: 500; }
+    #homeContent .band.first .bandContent {
+      padding-top: 150px;
+      padding-bottom: 80px;
+    }
+
+/* hex badges layout */
+/* adapted from tidyverse.org */
+
+.hexBadges {
+  position: relative;
+  width: 500px;
+  margin-top: -50px;
+  min-height: 400px; }
+.hexBadges img {
+  width: 180px;
+  height: 208.5px;
+  position: absolute;
+  -webkit-transition-property: opacity;
+  -moz-transition-property: opacity;
+  -o-transition-property: opacity;
+  transition-property: opacity;
+  -webkit-transition-duration: 0.25s;
+  -moz-transition-duration: 0.25s;
+  -o-transition-duration: 0.25s;
+  transition-duration: 0.25s; }
+.hexBadges img.r0.c0, .hexBadges img.r2.c0, .hexBadges img.r4.c0 {
+  left: 0; }
+.hexBadges img.r0.c1, .hexBadges img.r2.c1, .hexBadges img.r4.c1 {
+  left: 185px; }
+.hexBadges img.r0.c2, .hexBadges img.r2.c2, .hexBadges img.r4.c2 {
+  left: 370px; }
+.hexBadges img.r0.c3, .hexBadges img.r2.c3, .hexBadges img.r4.c3 {
+  left: 555px; }
+.hexBadges img.r1.c0, .hexBadges img.r3.c0, .hexBadges img.r5.c0 {
+  left: 92.5px; }
+.hexBadges img.r1.c1, .hexBadges img.r3.c1, .hexBadges img.r5.c1 {
+  left: 277.5px; }
+.hexBadges img.r1.c2, .hexBadges img.r3.c2, .hexBadges img.r5.c2 {
+  left: 462.5px; }
+.hexBadges img.r0 {
+  top: 0px; }
+.hexBadges img.r1 {
+  top: 161px; }
+.hexBadges img.r2 {
+  top: 322.5px; }
+.hexBadges img.r3 {
+  top: 484px; }
+
+@media screen and (max-width: 1023px) {
+  .hexBadges {
+    width: 350px; }
+    .hexBadges img.r0.c2, .hexBadges img.r2.c2, .hexBadges img.r4.c2 {
+      left: 185px; }
+    .hexBadges img.r1.c2, .hexBadges img.r3.c2, .hexBadges img.r5.c2 {
+      left: 277.5px; } }

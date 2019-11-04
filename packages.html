@@ -1,0 +1,54 @@
+---
+layout: default
+menu: R Packages
+weight: 1
+title: Packages
+category: packages
+permalink: /packages/
+---
+
+<h1 align = "center">isoverse R Packages</h1>
+
+{% assign packages = site.packages | sort:"weight" %}
+{% for package in packages %}
+
+<div class="media">
+  <div class="media-heading">
+
+  </div>
+  <div class="media-left">
+    &nbsp;<br/>&nbsp;
+    <a href="http://{{ package.repo }}.isoverse.org"><img src="/images/hex-{{ package.repo }}.png" align="center" height="138.5"/></a>
+  </div>
+  <div class="media-body">
+
+    <h3>
+      <a href="http://{{ package.repo }}.isoverse.org">{{ package.title }}</a>
+      <a href="http://github.com/isoverse/{{ package.repo }}"><i class="fa fa-github"></i></a>
+    </h3>
+
+    <pre># run in RStudio or R console to install:
+if (!requireNamespace("devtools", quietly = T)) install.packages("devtools")
+devtools::install_github("isoverse/{{ package.repo }}")</pre>
+
+    <p>
+      {{ package.content }}
+    </p>
+
+    {% if package.binder %}
+    <p>
+      <span class="fa fa-rocket"></span>: Explore all functionality and vignettes of the <strong>{{ package.title }}</strong> package interactively on <a href="https://mybinder.org/">binder</a>:
+      <a href="https://mybinder.org/v2/gh/isoverse/{{ package.repo }}/{{ package.binder }}?urlpath=rstudio"><img src="https://img.shields.io/badge/launch-RStudio-blue.svg"/></a>
+      <a href="https://mybinder.org/v2/gh/isoverse/{{ package.repo }}/{{ package.binder }}?urlpath=lab"><img src="https://img.shields.io/badge/launch-Jupyter-orange.svg"/></a>
+    </p>
+    {% endif %}
+
+    <p>
+      <span class="fa fa-comment"></span>: Please provide comments/suggestions and file bug reports or feature requests on <a href="http://github.com/isoverse/{{ package.repo }}/issues">GitHub</a>
+    </p>
+
+  </div>
+
+</div>
+
+{% endfor %}

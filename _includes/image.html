@@ -1,0 +1,24 @@
+{%  if include.thumb %}
+{%    assign thumb = include.thumb %}
+{%  else %}
+{%    assign ext = include.img | split: '.' | last | prepend: '.' %}
+{%    assign thumb_ext = "_thumb" | append: ext %}
+{%    assign thumb = include.img | replace: ext, thumb_ext %}
+{%    capture thumb_exists %}{% include file_exists.html file=thumb %}{% endcapture %}
+{%    assign thumb_exists  = thumb_exists | strip_newlines %}
+{%    unless thumb_exists == 'yes' %}
+{%    assign thumb = include.img   %}
+{%    endunless %}
+{%  endif %}
+{% if include.class %}
+{%    assign class = include.class %}
+{% else %}
+{%    assign class = "border" %}
+{% endif %}
+<a href="{{ include.img }}"
+  data-lightbox="team" data-title="{{ include.caption }}">
+  <img src="{{ thumb }}"
+    title="{{ include.caption }}" class="{{ class }}"
+    {% if include.height %} height="{{ include.height }}" {% endif %}
+    {% if include.width %} width="{{ include.width }}" {% endif %}>
+</a>

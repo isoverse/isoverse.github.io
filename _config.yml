@@ -1,0 +1,18 @@
+# Site settings
+title: isoverse
+github: isoverse
+description: >
+  open-source data tools for stable isotopes
+url: "https://isoverse.org"
+logo: "/images/logos/isoverse_logo_thumb.png"
+icon: "/images/isoverse_icon.png"
+permalink: /:categories/:title/
+
+# Build settings
+markdown: kramdown
+
+# Data
+collections:
+  packages:
+    output: true
+    permalink: /:collection/:path/
