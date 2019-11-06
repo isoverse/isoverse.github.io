@@ -1,6 +1,7 @@
 # Site settings
 title: isoverse
 github: isoverse
+ga: UA-106138361-6
 description: >
   open-source data tools for stable isotopes
 url: "https://isoverse.org"
