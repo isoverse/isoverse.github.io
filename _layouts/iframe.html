@@ -3,12 +3,12 @@
   {% include head.html %}
   <body style="margin:0px;padding:0px;overflow:hidden">
 
-    <!--
     <script>
-    window.location = '{{ page.link }}';
+    window.location.replace('{{ page.link }}');
     </script>
-    -->
+    <!-- still couldn't get this to work
     <iframe src="{{ page.link }}" frameborder="0">
     </iframe>
+    -->
   </body>
 </html>
