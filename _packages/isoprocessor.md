@@ -1,9 +1,10 @@
 ---
 title: isoprocessor
 layout: default
-weight: 2
+status: older
+weight: 6
 repo: isoprocessor
-binder: binder
+superseded_by: isoprocessor2
 ---
 
-This package provides broad functionality for IRMS data processing and reduction pipelines including signal conversion (voltage to current and back), time scaling (continuous flow chromatograms), isotope ratio calculations, delta value calculations, as well as easy-to-use highly flexible data calibration and visualization pipelines for continuous flow data. Additional tools on O17 corrections, H3 factor calculation, peak detection, baseline correction, etc are in the works.
+This package provides broad functionality for IRMS data processing and reduction pipelines for data read with the [isoreader](https://isoreader.isoverse.org/) package, including signal conversion (voltage to current and back), time scaling (continuous flow chromatograms), isotope ratio calculations, delta value calculations, as well as easy-to-use highly flexible data calibration and visualization pipelines for continuous flow data.
