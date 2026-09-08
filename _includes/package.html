@@ -1,0 +1,53 @@
+{% assign package = include.package %}
+{% assign hex = package.hex | default: package.repo %}
+{% assign docs_url = "https://" | append: package.repo | append: ".isoverse.org" %}
+{% assign repo_url = "https://github.com/isoverse/" | append: package.repo %}
+
+<div class="media">
+  <div class="media-left">
+    &nbsp;<br />&nbsp;
+    <a href="{{ docs_url }}"><img src="/images/hex-{{ hex }}.png" alt="{{ package.title }} hex sticker" align="center"
+        height="138.5" /></a>
+  </div>
+  <div class="media-body">
+
+    <h3>
+      <a href="{{ docs_url }}">{{ package.title }}</a>
+      <a href="{{ repo_url }}"><i class="fa fa-github"></i></a>
+    </h3>
+
+    <pre># run in RStudio or R console to install:
+{% if package.install %}{{ package.install | strip }}{% else %}# install the development version from GitHub
+if (!requireNamespace("pak", quietly = TRUE)) install.packages("pak")
+pak::pak("isoverse/{{ package.repo }}"){% endif %}</pre>
+
+    <div class="package-description">
+      {{ package.content }}
+    </div>
+
+    {% if package.superseded_by %}
+    <p>
+      <span class="fa fa-arrow-circle-right"></span>: <strong>{{ package.title }}</strong> is superseded by
+      <a href="https://{{ package.superseded_by }}.isoverse.org">{{ package.superseded_by }}</a>, which we recommend for
+      new projects.
+    </p>
+    {% endif %}
+
+    {% if package.binder %}
+    <p>
+      <span class="fa fa-rocket"></span>: Explore all functionality and vignettes of the
+      <strong>{{ package.title }}</strong> package interactively on <a href="https://mybinder.org/">binder</a>:
+      <a href="https://mybinder.org/v2/gh/isoverse/{{ package.repo }}/{{ package.binder }}?urlpath=rstudio"><img
+          src="https://img.shields.io/badge/launch-RStudio-blue.svg" alt="launch RStudio on binder" /></a>
+      <a href="https://mybinder.org/v2/gh/isoverse/{{ package.repo }}/{{ package.binder }}?urlpath=lab"><img
+          src="https://img.shields.io/badge/launch-Jupyter-orange.svg" alt="launch Jupyter on binder" /></a>
+    </p>
+    {% endif %}
+
+    <p>
+      <span class="fa fa-comment"></span>: Please provide comments/suggestions and file bug reports or feature requests
+      on <a href="{{ repo_url }}/issues">GitHub</a>
+    </p>
+
+  </div>
+</div>
